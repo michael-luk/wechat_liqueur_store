@@ -1,7 +1,7 @@
 # wechat_liqueur_store
 定制酒微信商城(公众号商城微信支付)
 
-包括官网, 微商城, 后台管理. 截图如下
+包括官网, 微商城, 后台管理. 包含三级分销功能, 截图如下:
 
 ![Image text](http://www.woyik.com/img/liqueur_store_site.png)
 
