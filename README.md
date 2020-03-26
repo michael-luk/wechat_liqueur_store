@@ -3,11 +3,11 @@
 
 包括官网, 微商城, 后台管理. 截图如下
 
-![Image text](https://raw.githubusercontent.com/michael-luk/images/master/liqueur_store_site.png)
+![Image text](http://www.woyik.com/img/liqueur_store_site.png)
 
-![Image text](https://raw.githubusercontent.com/michael-luk/images/master/liqueur_store_shop.png)
+![Image text](http://www.woyik.com/img/liqueur_store_shop.png)
 
-![Image text](https://raw.githubusercontent.com/michael-luk/images/master/liqueur_store_admin.png)
+![Image text](http://www.woyik.com/img/liqueur_store_admin.png)
 
 
 开发框架: 后台Play框架2.3.8版本 https://www.playframework.com/documentation/2.3.x/Home, 前台AngularJS+JQuery
