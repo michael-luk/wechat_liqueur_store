@@ -1,0 +1,41 @@
+.myL-div1{
+	width:100%;
+/*     min-height:56px; */
+	background:#fff;
+	float:left;
+	padding: 2.5% 1% 1.5% 3%;
+	border-bottom:2px solid #c8c8c8;
+    margin:2% 0 2% 0;
+}
+.location-div1{
+	width:100%;
+ 	background:#121A31; 
+	float:left;
+	margin:0 0 5% 0;
+}
+.location-left{
+	width:7%;
+	height:25px;
+	float:left;
+	margin: 9% 0 9% 3%;;
+background:url(../img/radio3.png) no-repeat; 
+ 	background-size: 100% 100%;
+ 	z-index:30;
+	}
+.selectLeft{
+background:url(../img/radio4.png) no-repeat; 
+background-size: 100% 100%;
+}
+.location-center{
+	width: 71%;
+	float:left;
+   margin: 6% 0 0 3%;
+    color: #B48F4F;
+    font-size: 14px;
+	
+	}
+.location-right{
+	width:10%;
+	float:right;
+	    margin:8% 6% 6% 0;
+	}

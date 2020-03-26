@@ -1,0 +1,154 @@
+@frame("产品详情", "WproductApp", "WproductController") {
+<meta charset="UTF-8">
+
+
+<div class="P-marry">
+
+	<carousel interval="myInterval"> <slide
+		ng-repeat="slide in slides" active="slide.active"> <img
+		ng-src="{{slide.image}}" style="margin: auto;">
+	<div class="carousel-caption">
+	</div>
+	</slide> </carousel>
+</div>
+<div class="order">
+	<div class="details">
+		<p class="details-p1">
+			<b> <span ng-bind="product.alcoholDegree"
+				ng-show="Product.alcoholDegree>1"></span><span
+				ng-show="Product.alcoholDegree>1">度</span> <!-- <span
+				ng-bind="product.ml"></span>ml --> <span ng-bind="product.name"></span>
+			</b>
+		</p>
+		<p class="details-p2" ng-bind="product.shortDesc"></p>
+		<p class="details-p3">
+			<b><span ng-bind="selectprice  | currency: '￥'"></span></b> <span
+				style="font-size: 14px; color: #121A31; float: right; margin: 0 0 0 1.5%; width: 20%;"
+				ng-if="favoriteProduct">已收藏 </span> <span
+				style="font-size: 14px; color: #121A31; float: right; margin: 0 0 0 1.5%; width: 20%;"
+				ng-if="favoriteProduct === false">收藏 </span> <img
+				style="width: 7%; height: 10%; float: right;"
+				src='@routes.Assets.at("img/love.png")' alt=""
+				ng-click="cancelFavorite()" ng-if="favoriteProduct"> <img
+				style="width: 7%; height: 10%; float: right;"
+				src='@routes.Assets.at("img/love1.png")' alt=""
+				ng-click="favorite()" ng-if="favoriteProduct === false">
+
+
+		</p>
+	</div>
+
+	<div class="color" ng-if="product.canPaint || product.canCarve">
+		<div style="width: 15%; float: left; margin: 3% 0 0 2%;">
+			<span class="color-span1">工艺：</span>
+		</div>
+		<div class="color-div">
+			<div class="themeColor" style=""
+				ng-repeat="canDecoration in canDecorations"
+				ng-click="selectDecoration($index)"
+				ng-class="{true: 'selectTheme'}[$index === selectedDecorationDiv]">
+				<b ng-bind="canDecoration"></b>
+			</div>
+		</div>
+	</div>
+	<div class="color" ng-show="winebodys[0].name != '酒具'">
+		<div style="width: 15%; float: left; margin: 3% 0 0 2%;">
+			<span class="color-span1">酒体：</span>
+		</div>
+		<div class="color-div">
+			<div class="themeColor" style="" ng-repeat="winebody in winebodys"
+				ng-click="selectWinebody($index)"
+				ng-class="{true: 'selectTheme'}[$index === selectedWinebodyDiv]">
+				<b ng-bind="winebody.name"></b>
+			</div>
+		</div>
+	</div>
+	<div class="color" ng-show="winebodys[0].name != '酒具'">
+		<div style="width: 15%; float: left; margin: 3% 0 0 2%;">
+			<span class="color-span1">规格：</span>
+		</div>
+		<div class="color-div">
+			<div class="themeColor" style=""
+				ng-repeat="bottleSpec in bottleSpecs"
+				ng-click="selectBottleSpec($index)"
+				ng-class="{true: 'selectTheme'}[$index === selectedBottleSpecDiv]">
+				<b ng-bind="bottleSpec"> </b>斤
+			</div>
+		</div>
+	</div>
+
+	<div class="number">
+		<div style="width: 15%; float: left; margin: 3% 0 0 0.5%;">
+			<span class="color-span1">数量：</span>
+		</div>
+		<div id="min" ng-click="setMinus()">-</div>
+		<input ng-model="quantity" id="text_box" type="text">
+		<div id="add" ng-click="setAdd()">+</div>
+		<div class="custom">
+			<a class="a-custom"
+				href="/w/order?pid={{product.id}}&num={{quantity}}&themeId={{selectedTheme.id}}&theme={{encodeContent(selectedTheme.name)}}&themeId={{selectedTheme.id}}&image={{selectedTheme.images}}&userId={{userId}}&WinebodyName={{selectedWinebody.name}}&BottleSpec={{selectedBottleSpec}}&Decoration={{selectedDecoration}}&price={{selectprice}}">
+				立即定制 </a>
+		</div>
+	</div>
+	<div class="number3">
+		<ul>
+			<li style="margin-left: -5%;" ng-click="setTab(1)">商品介绍</li>
+			<li ng-click="setTab(2)">规格参数</li>
+			<li ng-click="setTab(3)">购物须知</li>
+		</ul>
+	</div>
+</div>
+
+<div style="background: #fff;" ng-show="selectTab === 1">
+	<img style="width: 100%; height: 100%;" id="sp"
+		ng-repeat="desc in description"
+	ng-src='/showimg/upload/{{desc}}' alt="">
+</div>
+<div class="guige" style="background: #fff; float: left;"
+	ng-show="selectTab === 2">
+	<div class="Wt-div"
+		style="width: 90%; margin: 0 auto; color: #7C7C7C; font-size: 15px; font-weight: bold; margin-top: 1%; margin-bottom: 1%; padding: 2%;">
+
+		<!-- <span ng-bind-html="product.spec | safehtml"> </span>  -->
+		<p>
+			规格参数<span ng-bind="product.spec | safehtml"></span>
+		</p>
+		<p>
+			风味<span ng-bind="product.flavor"></span>
+		</p>
+		<p>
+			度数<span ng-bind="product.alcoholDegree"></span>度
+		</p>
+		<!-- 	<p>容量<span ng-bind="product.ml"></span>ml</p> -->
+		<p>
+			原料<span ng-bind="product.source"></span>
+		</p>
+		<p>
+			产地<span ng-bind="product.productionCity"> </span>
+		</p>
+		<p>
+			毛重<span ng-bind="product.totalWeight"></span>kg
+		</p>
+		<p>
+			品牌<span ng-bind="product.brand"></span>
+		</p>
+		<p>
+			许可证<span ng-bind="product.productionLicense"></span>
+		</p>
+		<p>
+			厂址<span ng-bind="product.factoryLocation"></span>
+		</p>
+	</div>
+
+
+</div>
+<div class="xuzhi"
+	style="background: #fff; color: #7C7C7C; font-size: 15px; font-weight: bold;"
+	ng-show="selectTab === 3">
+	<div
+		style="width: 90%; margin: 0 auto; color: #7C7C7C; font-size: 15px; font-weight: bold; border: 1px solid #E3E3E3; margin-top: 1%; margin-bottom: 1%; padding: 5% 2% 5% 2%;">
+		<span ng-bind-html="product.notice | safehtml"> </span>
+
+	</div>
+</div>
+}

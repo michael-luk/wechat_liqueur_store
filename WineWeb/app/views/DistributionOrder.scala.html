@@ -1,0 +1,46 @@
+@frame("我的分销订单", "MyResellerOrderApp", "MyResellerOrderController") {
+<meta charset="UTF-8">
+<div class="myOrder-wine">	
+<div class="Dis-div" style="font-size:10px;">
+		<ul style="margin-left: -5%;font-size:10px">
+			<li><a href="" id="" style="cursor: hand;font-size:10px">总订单<br><span ng-bind="myOrders.length"></span></a></li>
+			<li><a href="" id="" style="cursor: hand;font-size:10px">总分销额<br><span ng-bind="resellerAmount | currency: '￥'"></span></a></li>
+			<li><a href="" id="" style="cursor: hand;font-size:10px">总佣金<br><span ng-bind="user.currentResellerProfit | currency: '￥'"></span></a></li>
+		</ul>
+	</div>
+	<div class="myOrder-mg" ng-repeat="xx in myOrders">
+		<p class="myOrder-p1" >
+			<b>订单编号:{{xx.orderNo}}</b>
+				<!-- <div class="disOrder-button">交易完成</div> -->
+			 <input type="button" value="已支付" class="disOrder-button" ng-show="xx.status === 1"> 
+			 <input type="button" value="已收货" class="disOrder-button" ng-show="xx.status === 5"> 
+			 <input type="button" value="已计算分销" class="disOrder-button" ng-show="xx.status === 6"> 
+			 <input type="button" value="已取消分销" class="disOrder-button" ng-show="xx.status === 7"> 
+		</p>
+			<a href="/w/Wproduct/{{xx.orderProducts[0].id}}">
+		<div class="myOrder-div1">
+	
+			<div class="myOrder-img">
+				<img style="width: 100%; height: 100%;" ng-src="/showimg/thumb/{{images[$index]}}" alt="">
+			</div>
+			<p class="myOrder-p2">
+				<b ng-bind="xx.orderProducts[0].name">
+				</b>
+			</p>
+			<p class="myOrder-p3">
+				<b>数量：<!-- {{xx.quantity}} --><span ng-bind="xx.quantity"></span> <span class="myOrder-span1" ng-bind="xx.price | currency: '￥'"><!-- &yen;{{xx.orderProducts[0].price}} --></span></b>
+			</p>
+		</div>
+		</a>
+		<p class="myOrder-p4">
+			<b>订单总价:<!-- &yen;{{xx.amount}}  --> <span ng-bind="xx.amount | currency: '￥'"> </span>&nbsp;  总佣金: <span ng-show="xx.status === 6"> </span><span style="color:#bda770" ng-show="xx.status === 6"></span><span style="color:#bda770" ng-bind="xx.resellerProfit3  | currency: '￥'"></span></b>
+		</p>
+		<p class="myOrder-p4">
+			<b>买家会员号: <span ng-bind="xx.buyer.resellerCode | uppercase"> </span></b>
+		</p>
+		<p class="myOrder-p4">
+			<b>买家微信名: <span ng-bind="xx.buyer.nickname"></span></b>
+		</p>
+	</div>
+ </div>
+}

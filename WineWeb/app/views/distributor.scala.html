@@ -1,0 +1,64 @@
+@frame("分销中心", "DistributorApp", "DistributorController") {
+    <!-- <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html> -->
+    <div class="user-img">
+        <p class="user-p">会员号: <span class="user-p" ng-bind="user.resellerCode | uppercase"></span></p>
+        <p class="user-p">总分销额: <span class="user-p" ng-bind="resellerAmount | currency: '￥'"></span></p>
+         <p class="user-p">总佣金: <span ng-bind="user.currentResellerProfit | currency: '￥'"></span>
+	  <span ng-if="status === 0">(佣金:<span  ng-bind="txz | currency: '￥'"></span>正在提款中)</span></p>
+	 </div>
+    <div style="background: #c8c8c8 ; width: 100% ; min-height:440px ;">
+            <!-- <div class="user-img"></div> -->
+        <a href="/w/DistributionOrder" class="user-a"><div class="user-div1">
+            <img src='@routes.Assets.at("img/fx1.png")' alt="" class="xtb">
+            <span class="user-span">我的分销订单</span>
+            <img src='@routes.Assets.at("img/right.png")' alt=""
+            class="img-right">
+        </div>
+        </a>
+        <a href="/w/team" class="user-a">
+            <div class="user-div1">
+                <img src='@routes.Assets.at("img/fx2.png")' alt="" class="xtb">
+                <span class="user-span">我的团队</span>
+                <img src='@routes.Assets.at("img/right.png")' alt=""
+                class="img-right">
+            </div>
+        </a>
+        <a href="/w/QRcode?u={{user.id}}" class="user-a">
+            <div class="user-div1">
+                <img src='@routes.Assets.at("img/fx3.png")' alt="" class="xtb">
+                <span class="user-span">我的分销二维码</span>
+                <img src='@routes.Assets.at("img/right.png")' alt=""
+                class="img-right" >
+            </div>
+        </a>
+        <div class="user-div1" ng-if="user.currentResellerProfit>0">
+            <a href="/w/fondOutRequest" class="user-a">
+                <img src='@routes.Assets.at("img/fx4.png")' alt="" class="xtb">
+                <span class="user-span">我要提款</span>
+                <img src='@routes.Assets.at("img/right.png")' alt=""
+                class="img-right" >
+            </a>
+        </div>
+        <div class="user-div1" ng-if="user.currentResellerProfit==0" ng-click="checkFondout()">
+                <img src='@routes.Assets.at("img/fx4.png")' alt="" class="xtb">
+                <span class="user-span">我要提款</span>
+                <img src='@routes.Assets.at("img/right.png")' alt=""
+                class="img-right" >
+        </div>
+            <!-- <a href="/w/userCenter" class="lianjie"><img
+				src='    @routes.Assets.at("upload/lianjie1.png")
+            ' alt="" style="width:100%;"></a> -->
+        <!-- <a
+		href="/w/pay?pid={{newProduct.id}}&num={{newOrder.quantity}}&price={{newProduct.price}}&total={{newProduct.price * newOrder.quantity}}&wishWord={{newOrder.wishWord}}&theme={{newOrder.theme}}&themeId={{newOrder.themeId}}&image={{newOrder.wishImage}}"><input
+		type="button" class="user-button1" value="退出登录"></a> -->
+    </div>
+}

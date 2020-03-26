@@ -1,0 +1,69 @@
+@frame("个人中心", "UserApp", "UserController") {
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html> -->
+<div class="user-img">
+	<div class="touxiang"><img
+		src='{{user.headImgUrl}}' style="width:80px;height:80px" alt=""></div>
+	<div class="yonghum">
+		<p class="user-p">
+			<!-- <b>用户名:<span ng-bind="user.nickname">{{user.nickname}}</b> -->
+			<b>用户名:@session.get("WX_NAME")</b>
+			<!-- {{user.loginName}} -->
+		</p>
+		<p class="user-p">
+			<!-- <b>用户名:<span ng-bind="user.nickname">{{user.nickname}}</b> -->
+			<b>会员号:<span ng-bind="user.resellerCode | uppercase"></span></b>
+			<!-- {{user.loginName}} -->
+		</p>
+<!-- 		<p class="user-p" -->
+<!-- 			style="font-size: 14px; text-align: right; margin-top: 15%; color: #bda770;"> -->
+<!-- 			积分:<span ng-bind="user.jifen"></span>分{{user.loginName}} -->
+<!-- 		</p> -->
+	</div>
+
+	<!--   <p class="user-p">总佣金:</p> -->
+</div>
+<div
+	style="background: #c8c8c8; width: 100%; min-height: 440px; margin-bottom: 5%;">
+	<!-- <div class="user-img"></div> -->
+	<a href="/w/myOrder?userId={{user.id}}" class="user-a"><div class="user-div1">
+			<img src='@routes.Assets.at("img/xtb1.png")' alt="" class="xtb">
+			<span class="user-span">我的订单</span> <img
+				src='@routes.Assets.at("img/right.png")' alt="" class="img-right">
+		</div> </a> <a href="/w/collect?userId={{user.id}}" class="user-a">
+		<div class="user-div1">
+			<img src='@routes.Assets.at("img/xtb2.png")' alt="" class="xtb">
+			<span class="user-span">我的收藏</span> <img
+				src='@routes.Assets.at("img/right.png")' alt="" class="img-right">
+		</div>
+	</a> <a href="/w/myLocation?userId={{user.id}}" class="user-a"><div class="user-div1">
+			<img src='@routes.Assets.at("img/xtb3.png")' alt="" class="xtb">
+			<span class="user-span">我的收货地址</span> <img
+				src='@routes.Assets.at("img/right.png")' alt="" class="img-right">
+		</div> </a> 
+		<a href="/w/invoiceTitle?userId={{user.id}}" class="user-a">	
+		<div class="user-div1">
+			<img src='@routes.Assets.at("img/xtb4.png")' alt="" class="xtb">
+			<span class="user-span">我的发票信息</span> <img
+				src='@routes.Assets.at("img/right.png")' alt="" class="img-right">
+		</div>
+	</a> <a href="/w/distributor" class="user-a"><div ng-show="user.isReseller" class="user-div1">
+			<img src='@routes.Assets.at("img/xtb5.png")' alt="" class="xtb">
+			<span class="user-span">我是分销商</span> <img
+				src='@routes.Assets.at("img/right.png")' alt="" class="img-right">
+		</div> </a>
+	<!-- <a href="/w/userCenter" class="lianjie"><img
+				src='@routes.Assets.at("upload/lianjie1.png")' alt="" style="width:100%;"></a> -->
+	<!-- <a
+		href="/w/pay?pid={{newProduct.id}}&num={{newOrder.quantity}}&price={{newProduct.price}}&total={{newProduct.price * newOrder.quantity}}&wishWord={{newOrder.wishWord}}&theme={{newOrder.theme}}&themeId={{newOrder.themeId}}&image={{newOrder.wishImage}}"><input
+		type="button" class="user-button1" value="退出登录"></a> -->
+</div>
+}

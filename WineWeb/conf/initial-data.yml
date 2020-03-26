@@ -1,0 +1,480 @@
+studys:
+  - !!models.StudyModel
+    name: 小玲
+    phone: 13715693589
+    images: P1.jpg
+
+
+
+
+
+users:
+  - !!models.UserModel
+    loginName: 18666911091
+    password: e10adc3949ba59abbe56e057f20f883e
+    userRole: 2
+    jifen: 100
+
+  - !!models.UserModel
+    loginName: 18675629612
+    password: e10adc3949ba59abbe56e057f20f883e
+    userRole: 0
+    resellerCode: 123
+    isReseller: True
+    wxOpenId: 111
+    jifen: 110
+    
+  - !!models.UserModel
+    loginName: 18675629633
+    password: e10adc3949ba59abbe56e057f20f883e
+    userRole: 1
+    jifen: 120
+    
+   
+# Promotion
+promotions:
+
+  - !!models.PromotionModel
+    classify: 满减优惠
+    reachMoney: 500
+    discount: 100
+
+  - !!models.PromotionModel
+    classify: 满减优惠
+    reachMoney: 1000
+    discount: 300
+
+  - !!models.PromotionModel
+    classify: 免运费
+    reachMoney: 300
+
+  - !!models.PromotionModel
+    classify: 首单优惠
+    discount: 30
+   
+    
+# 酒体    
+winebodys:
+
+  - !!models.WineBodyModel
+    name: 窖藏
+    price: 99
+    resellerMark: 40
+
+  - !!models.WineBodyModel
+    name: 典藏
+    price: 299
+    resellerMark: 150
+
+  - !!models.WineBodyModel
+    name: 珍藏
+    price: 499
+    resellerMark: 280
+
+ 
+# Shipareaprices
+shipareaprices:
+
+  - !!models.ShipAreaPriceModel
+    area: 北京市
+    shipPrice: 10
+
+  - !!models.ShipAreaPriceModel
+    area: 天津市
+    shipPrice: 12
+
+  - !!models.ShipAreaPriceModel
+    area: 上海市
+    shipPrice: 14
+
+  - !!models.ShipAreaPriceModel
+    area: 重庆市
+    shipPrice: 16
+
+  - !!models.ShipAreaPriceModel
+    area: 河北省
+    shipPrice: 20
+
+  - !!models.ShipAreaPriceModel
+    area: 河南省
+    shipPrice: 20
+
+  - !!models.ShipAreaPriceModel
+    area: 云南省
+    shipPrice: 10
+
+  - !!models.ShipAreaPriceModel
+    area: 辽宁省
+    shipPrice: 12
+
+  - !!models.ShipAreaPriceModel
+    area: 黑龙江省
+    shipPrice: 14
+
+  - !!models.ShipAreaPriceModel
+    area: 湖南省
+    shipPrice: 16
+
+  - !!models.ShipAreaPriceModel
+    area: 安徽省
+    shipPrice: 20
+
+  - !!models.ShipAreaPriceModel
+    area: 山东省
+    shipPrice: 10
+
+  - !!models.ShipAreaPriceModel
+    area: 新疆省
+    shipPrice: 12
+
+  - !!models.ShipAreaPriceModel
+    area: 江苏省
+    shipPrice: 14
+
+  - !!models.ShipAreaPriceModel
+    area: 浙江省
+    shipPrice: 16
+
+  - !!models.ShipAreaPriceModel
+    area: 江西省
+    shipPrice: 20
+
+  - !!models.ShipAreaPriceModel
+    area: 湖北省
+    shipPrice: 10
+
+  - !!models.ShipAreaPriceModel
+    area: 广西省
+    shipPrice: 12
+
+  - !!models.ShipAreaPriceModel
+    area: 甘肃省
+    shipPrice: 14
+
+  - !!models.ShipAreaPriceModel
+    area: 山西省
+    shipPrice: 16
+
+  - !!models.ShipAreaPriceModel
+    area: 内蒙古
+    shipPrice: 20
+
+  - !!models.ShipAreaPriceModel
+    area: 陕西省
+    shipPrice: 10
+
+  - !!models.ShipAreaPriceModel
+    area: 吉林省
+    shipPrice: 12
+
+  - !!models.ShipAreaPriceModel
+    area: 福建省
+    shipPrice: 14
+
+  - !!models.ShipAreaPriceModel
+    area: 贵州省
+    shipPrice: 16
+
+  - !!models.ShipAreaPriceModel
+    area: 广东省
+    shipPrice: 20
+
+  - !!models.ShipAreaPriceModel
+    area: 青海省
+    shipPrice: 10
+
+  - !!models.ShipAreaPriceModel
+    area: 西藏
+    shipPrice: 12
+
+  - !!models.ShipAreaPriceModel
+    area: 四川省
+    shipPrice: 14
+
+  - !!models.ShipAreaPriceModel
+    area: 宁夏省
+    shipPrice: 16
+
+  - !!models.ShipAreaPriceModel
+    area: 海南省
+    shipPrice: 20
+
+# Company Info
+companys:
+
+  - !!models.common.CompanyModel
+    name: 东莞龙鑫酒业有限公司
+    location: 珠海富华里A座1203
+    phone: 400-678-0068
+    cellPhone: 18666911091
+    email: mail@zhenshang.com
+    weibo: longxinwb
+    barcodeImg1: weibo.png 
+    qq: 17040643
+    weixin: 龙鑫酒业
+    barcodeImg2: weixin.png
+    description1: 东莞龙鑫酒业有限公司专注于定制酒产品的开发和定制酒文化的推广.
+    registerInfo1: Copyright © 2015-2016
+    registerInfo1: 粤ICP备15117462号
+    logo1: logo.jpg
+    marketing1: 0.05
+    marketing2: 0.1
+    marketing3: 0.15
+
+
+# Catalogs
+catalogs:
+
+  - !!models.CatalogModel
+    name: 婚庆系列
+    catalogIndex: 1
+    images: hunqing.jpg,jinian.jpg,zhushou.jpg
+    description1: 用细节成就您的美好婚礼
+    wishWord: 百年好合|早生贵子|永结同心
+
+  - !!models.CatalogModel
+    name: 纪念收藏系列
+    catalogIndex: 2
+    images: jinian.jpg,hunqing.jpg,qiye.jpg
+    description1: 愿多年后我们还是好友
+    wishWord: 传承经典一百年|纪念收藏|青春不散场
+
+  - !!models.CatalogModel
+    name: 祝寿生日系列
+    catalogIndex: 3
+    images: zhushou.jpg
+    description1: 定制诠释自己心意
+    wishWord: 福寿安康|生日快乐|天天开心
+
+  - !!models.CatalogModel
+    name: 企业店庆系列
+    catalogIndex: 4
+    images: qiye.jpg
+    description1: 企业活动宴席必不可少
+    wishWord: 生意兴隆|财源广进|庆祝公司成立十周年
+
+  - !!models.CatalogModel
+    name: 升值收藏系列
+    catalogIndex: 5
+    images: shengzhi.jpg
+    description1: 收藏铭记最重要的时刻
+    wishWord: 传承经典一百年|升值收藏|刻下最完美的时刻
+
+  - !!models.CatalogModel
+    name: 招待系列
+    catalogIndex: 6
+    images: zhaodai.jpg
+    description1: 专属宴请招待用酒
+    wishWord: 吃好喝好|刻下最完美的时光|百年好合
+
+  - !!models.CatalogModel
+    name: 感恩系列
+    catalogIndex: 7
+    images: ganen.jpg
+    description1: 所有感谢尽在龙鑫定制酒
+    wishWord: 感谢父母的养育之恩|朋友,感谢一路上与你同行|谢谢你
+
+  - !!models.CatalogModel
+    name: 私人定制化系列
+    catalogIndex: 8
+    images: siren.jpg
+    description1: 张扬专属我的个性
+    wishWord: 难得糊涂|张扬专属我的个性|我的青春我做主
+
+
+# Products
+products:
+
+  - !!models.ProductModel
+    name: 龙鑫53度贵州茅台镇酱香型白酒(6年珍藏)
+    images: hq.png,xiangxi.png
+    productImage: yulan.png
+    shortDesc: 喜上心头浓香型白酒,让你一次爱个够
+    tags: 婚庆
+    alcoholDegree: 53
+    ml: 200
+    decoration: 打印,雕刻
+    bottleSpec: 1,3,5,10
+    flavor: 酱香型
+    productionCity: 贵州茅台镇
+    brand: 龙鑫
+    source: 水、高粱、小麦
+    totalWeight: 7.47
+    productionLicense: QS520015014928
+    factoryLocation: 贵州茅台镇仁怀市上坪村新华组
+    price: 199
+    isHotSale: True
+    originalPrice: 799
+    soldNumber: 100
+    description: xiangqing1.png,xiangqing2.png,xiangqing3.png,xiangqing4.png,xiangqing5.png
+    spec: 风味:酱香型<br>度数:53度<br>容量:200ml<br>原料:水、高粱、小麦<br>产地:贵州茅台镇<br>毛重:1kg
+    notice: 下单前请注意查看购买信息资料,婚庆产品不支持退款
+
+  - !!models.ProductModel
+    name: 龙鑫63度贵州茅台白酒
+    images: hqandzd.png,xiangxi.png
+    productImage: yulan.png
+    shortDesc: 最美的时刻,留下最深的回忆
+    tags: 婚庆,招待
+    alcoholDegree: 63
+    ml: 300
+    decoration: 打印,雕刻
+    bottleSpec: 1,3,5,10
+    flavor: 酱香型
+    productionCity: 贵州茅台镇
+    brand: 龙鑫
+    source: 水、高粱、小麦
+    totalWeight: 7.47
+    productionLicense: QS520015014928
+    factoryLocation: 贵州茅台镇仁怀市上坪村新华组
+    isHotSale: True
+    price: 299
+    originalPrice: 799
+    soldNumber: 120
+    description: xiangqing6.png,xiangqing7.png,xiangqing8.png,xiangqing9.png,xiangqing10.png
+    spec: 风味:酱香型<br>度数:63度<br>容量:300ml<br>原料:水、高粱、小麦<br>产地:贵州茅台镇<br>毛重:2kg
+    notice: 下单前请注意查看购买信息资料,婚庆,招待产品不支持退款
+
+  - !!models.ProductModel
+    name: 龙鑫浩然酒
+    images: ge.png,xiangxi.png
+    productImage: yulan.png
+    shortDesc: 浓香型白酒,给你浓浓的情意
+    tags: 感恩
+    alcoholDegree: 50
+    ml: 350
+    decoration: 打印,雕刻
+    bottleSpec: 1,3,5,10
+    flavor: 酱香型
+    productionCity: 贵州茅台镇
+    brand: 龙鑫
+    source: 水、高粱、小麦
+    totalWeight: 7.47
+    productionLicense: QS520015014928
+    factoryLocation: 贵州茅台镇仁怀市上坪村新华组
+    isHotSale: False
+    price: 399
+    originalPrice: 799
+    soldNumber: 80
+    description: xiangqing11.png,xiangqing12.png,xiangqing13.png,xiangqing14.png,xiangqing15.png
+    spec: 风味:酱香型<br>度数:50度<br>容量:350ml<br>原料:水、高粱、小麦<br>产地:贵州茅台镇<br>毛重:3kg
+    notice: 下单前请注意查看购买信息资料,感恩产品不支持退款
+
+  - !!models.ProductModel
+    name: 龙鑫83度浩然定制白酒
+    images: dz.png,xiangxi.png
+    productImage: yulan.png
+    shortDesc: 高档私人定制酒,一瓶起定
+    tags: 私人定制
+    alcoholDegree: 83
+    ml: 500
+    decoration: 打印,雕刻
+    bottleSpec: 1,3,5,10
+    flavor: 酱香型
+    productionCity: 贵州茅台镇
+    brand: 龙鑫
+    source: 水、高粱、小麦
+    totalWeight: 7.47
+    productionLicense: QS520015014928
+    factoryLocation: 贵州茅台镇仁怀市上坪村新华组
+    price: 499
+    originalPrice: 799
+    isHotSale: True
+    soldNumber: 103
+    description: xiangqing16.png,xiangqing17.png,xiangqing18.png,xiangqing19.png,xiangqing20.png
+    spec: 风味:酱香型<br>度数:83度<br>容量:500ml<br>原料:水、高粱、小麦<br>产地:贵州茅台镇<br>毛重:4kg
+    notice: 下单前请注意查看购买信息资料,私人定制产品不支持退款
+
+
+# Themes
+themes:
+
+  - !!models.ThemeModel
+    name: 红色
+    images: xiangqing16.png,xiangqing17.png,xiangqing18.png
+
+  - !!models.ThemeModel
+    name: 黄色
+    images: xiangqing17.png
+
+  - !!models.ThemeModel
+    name: 白色
+    images: xiangqing18.png
+
+  - !!models.ThemeModel
+    name: 蓝色
+    images: xiangqing19.png
+
+  - !!models.ThemeModel
+    name: 绿色
+    images: xiangqing20.png
+
+  - !!models.ThemeModel
+    name: 褐色
+    images: xiangqing15.png
+
+  - !!models.ThemeModel
+    name: 紫色
+    images: xiangqing14.png
+
+  - !!models.ThemeModel
+    name: 黑色
+    images: xiangqing13.png
+
+
+# Orders
+orders:
+
+  - !!models.OrderModel
+    orderNo: 100100100
+    wishWord: 友谊长存
+    price: 100
+    quantity: 10
+    status: 4
+    shipFee: 35
+    productAmount: 1000
+    amount: 1035
+    decoration: 打印
+    wineBody: 窖藏
+
+  - !!models.OrderModel
+    orderNo: 100100101
+    wishWord: 百年好合
+    price: 200
+    quantity: 8
+    status: 0
+
+    shipFee: 55
+    productAmount: 1600
+    amount: 1655
+    decoration: 雕刻
+    wineBody: 典藏
+
+  - !!models.OrderModel
+    orderNo: 100100101
+    wishWord: 青春常驻
+    price: 300
+    quantity: 8
+    status: 1
+    shipFee: 79
+    productAmount: 2400
+    amount: 2479
+    decoration: 打印
+    wineBody: 窖藏
+    
+    
+    
+# Infos
+infos:
+
+   - !!models.InfoModel
+     classify: 广告
+     images: guanggao.png
+
+   - !!models.InfoModel
+     classify: 广告
+     images: guanggao.png
+
+   - !!models.InfoModel
+     classify: 广告
+     images: guanggao.png

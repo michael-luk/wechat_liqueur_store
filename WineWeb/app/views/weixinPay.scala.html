@@ -1,0 +1,107 @@
+@frame("微信支付", "MyOrderApp", "MyOrderController") {
+    <meta charset="UTF-8">
+
+    <div style="width:100% ; background:#fff ; min-height:400px ; float:left ;">
+
+        <table style="width:60% ; margin:auto ; font-size:15px ; height:100px ; margin-top:50px ;">
+            <tr>
+                <td>订单编号:</td>
+                <td>@flash.get("orderNo")</td>
+            </tr>
+            <tr>
+                <td>支付金额:</td>
+                <td>@flash.get("orderAmount")</td>
+            </tr>
+            <tr>
+                <td><span id="wxpayDisplay">支付准备中...</span></td>
+                <td> </td>
+            </tr>
+        </table>
+        <div style="width:80% ; background:#eeeeee ; min-height: 70px ; float:left ;text-align: center;margin-left: 10%;">
+            <p class="weixin-p1" style="background:#fff ; height:30px ;"></p>
+            <p class="weixin-p1">请在<span style="color:#f08300 ;"> 24小时 </span>之内完成网上支付，否则系统将自动取消订单</p>
+  
+ </div>
+            <!-- <div class="order2-button1" style="margin-top:100px;">
+去支付
+</div> -->
+        <div class="div-foot" style="margin-top:30px ; display:none" id="wxpaybtn">
+            <div class="foot-s">
+                <img style="float: left ; margin: 8px 0 0 34% ;"
+                src='@routes.Assets.at("img/pay.png")' alt="">
+                <div class="weix"
+                style="width: 60px ; float: left ; padding: 16px 0 0 0 ;">微信支付</div>
+            </div>
+        </div>
+    </div>
+}
+
+    <!-- <script type="text/javascript">
+	$("#wxbtn").click(function() {
+		alert("check wx")
+		wx.checkJsApi({
+		  jsApiList: [
+			'getNetworkType',
+			'previewImage'
+		  ],
+		  success: function (res) {
+			alert("support wx")
+			//alert(JSON.stringify(res));
+		  }
+		});
+	});
+</script> -->
+
+<script type="text/javascript">
+	$('#wxpaybtn').hide()
+    wx.config({
+        debug: false,
+        appId: '@flash.get("appid")',
+        timestamp: '@flash.get("timestamp")',
+        nonceStr: '@flash.get("nonce")',
+        signature: '@flash.get("signature")',
+        jsApiList: [
+            'chooseWXPay'
+        ]// 必填，需要使用的JS接口列表
+    });
+
+    wx.ready(function () {
+        wx.ready(function () {
+            $('#wxpayDisplay').hide()
+            $('#wxpaybtn').show()
+            $('#wxpaybtn').click(function (event) {
+                //alert('wx config ready')
+
+                wx.chooseWXPay({
+                    timestamp: '@flash.get("timeStamp2")', // 支付签名时间戳
+                    nonceStr: '@flash.get("nonceStr2")', // 支付签名随机串
+                    package: '@flash.get("package")', // 统一支付接口返回的package包
+                    signType: 'MD5', // 签名方式，'MD5'
+                    paySign: '@flash.get("paySign")', // 支付签名
+                    success: function (res) {
+                        //alert(res);
+                        //alert(res.errMsg);
+                        if (res.errMsg == "chooseWXPay:ok") {
+                            // TODO: set waiting for notify
+                            window.location.href = window.location.protocol + '//' + window.location.host + '/w/myOrder?userId=' + @session.get("userid")
+                            // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+                        }
+                    }
+
+                });
+
+            });
+
+            //监听错误事件 出现'invalid signature' AJAX刷新ticket,并刷新当前页面
+            wx.error(function (res) {
+                //alert("支付出错");
+                if(res.errMsg.indexOf("invalid signature") > 0 )
+                {
+                    alert("微信支付失败: 无效签名");
+                }
+                else{alert(res.errMsg);}
+            });
+
+        });
+    })
+</script>

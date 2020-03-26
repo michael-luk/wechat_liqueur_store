@@ -1,0 +1,139 @@
+@frame("确认订单", "PayApp", "PayController") {
+<meta charset="UTF-8">
+<div class="pay">
+	<div class="pay-div1" ng-if="myLocations != null">
+	<div class="pay1-left" style="width:84%; float:left;margin: 4% 0 2% 0;">
+	<p class="pay-p1">
+			收货人：<span ng-bind="defaultLocation.name"></span> <span ng-bind="defaultLocation.phone" style="float:right;"></span>
+		</p>
+		<p class="pay-p1">
+			送货地址:&nbsp;<span style="color:#bda770;" ng-if="defaultLocation.isDefault === true ">[默认]&nbsp;</span><span ng-bind="defaultLocation.provice"></span><span ng-bind="defaultLocation.location"></span>
+		</p>
+	</div>
+	<div class="pay1-right" style="width:15%;float:left;margin:5% 0 5% 0;">
+	<a href="/w/myLocation?pid={{newOrder.orderProducts[0].id}}&num={{newOrder.quantity}}&price={{newOrder.price}}&amount={{newOrder.amount}}&wishWord={{newOrder.wishWord}}&theme={{newOrder.refThemeName}}&themeId={{newOrder.refThemeId}}&image={{newOrder.image}}&wishImage={{newOrder.wishImage}}&userId={{userId}}&wineBody={{ newOrder.wineBody}}&wineWeight={{ newOrder.wineWeight}}&decoration={{ newOrder.decoration}}">
+	<img src='@routes.Assets.at("img/right.png")' alt="" class="xtb" style="float:right; width:55%;"></a>
+	</div>
+		
+	</div>
+	<!-- 没有地址  -->
+	<a href="/w/location?pid={{newOrder.orderProducts[0].id}}&num={{newOrder.quantity}}&price={{newOrder.price}}&&amount={{newOrder.amount}}&wishWord={{newOrder.wishWord}}&theme={{newOrder.refThemeName}}&themeId={{newOrder.refThemeId}}&image={{newOrder.image}}&wishImage={{newOrder.wishImage}}&userId={{userId}}&wineBody={{ newOrder.wineBody}}&wineWeight={{ newOrder.wineWeight}}&decoration={{ newOrder.decoration}}">
+	<div class="pay-div1" style="min-height: 30px;" ng-if="myLocations === null ">
+	<div class="pay1-left" style="width:84%; float:left;">
+	<p class="pay-p1" style="margin-top:2%;">
+			请填写地址
+		</p>		
+	</div>
+	<div class="pay1-right" style="width:15%;float:left;margin:1% 0 1% 0;">
+	
+	<img src='@routes.Assets.at("img/right.png")' alt="" class="xtb" style="float:right; width:55%;">
+	</div>
+		
+	</div>
+	</a>
+	
+	<div class="pay-div1">
+		<div class="pay-img">
+			<img style="width: 100%; height: 100%;"
+				ng-src='/showimg/thumb/{{newOrder.image}}' alt="">
+		</div>
+		<div class="pay-div3"
+			style="width: 50%; min-height: 100px; float: left; ">
+			<p class="pay-p2">
+				<b> <span ng-bind="newOrder.orderProducts[0].alcoholDegree"></span>度
+					<!-- <span ng-bind="newOrder.orderProducts[0].ml"></span>ml --> <span
+					ng-bind="newOrder.orderProducts[0].name"></span></b>
+			</p>
+			<p class="pay-p3">
+			<!-- 	<b>订单编号：32356678 </b> -->
+			</p>
+		</div>
+		<div class="pay-div4">
+			<p class="pay-p4">
+				<span ng-bind="newOrder.price | currency: '￥'"></span>
+			</p>
+			<p class="pay-p5">
+				x<span ng-bind="newOrder.quantity"></span>
+			</p>
+		</div>
+		<!-- <div class="pay-div5" >
+			<form>
+				<p style="font-size: 14px;  margin: 2.5% 0 3.5% 0;">
+					<input type="radio" name="sex" value="" /> 运费:&yen;10（系统自动选择）
+
+					<input type="checkbox" ng-model="newOrder.freight" name="sex"
+						id="1" style="margin-left: 6%;">运费: <span
+						class="radio-span2">&yen;{{shipPrice * newOrder.quantity * newOrder.orderProducts[0].totalWeight *2}}
+						<span ng-bind="shipPrice * newOrder.quantity * newOrder.orderProducts[0].totalWeight *2"> </span>
+						<span ng-bind="newOrder.shipFee"> </span>（系统自动选择）</span>
+
+				</p>
+			</form>
+		</div> -->
+		<div class="pay-div6">
+			<p class="div6-p" >
+				总计：<span class="span-zj">
+				<span ng-bind="newOrder.amount | currency: '￥'""> </span>
+				<!-- <span
+					ng-bind="newOrder.orderProducts[0].price * newOrder.quantity + shipPrice * 2 * newOrder.quantity * newOrder.orderProducts[0].totalWeight"></span> -->
+				<!-- {{newOrder.orderProducts[0].price *
+				newOrder.quantity}} --></span>
+			</p>
+		</div>
+		<div class="pay-div7">
+			<form>
+				<p class="div7-p">
+					<input type="checkbox" ng-model="needInvoice" name="sex" id="2"
+						style="margin-left: 6%;">我要开发票 <span class="div7-span">
+						发票说明</span>
+				</p>
+			</form>
+		</div>
+		<div class="pay-div5" ng-show="needInvoice" style="border-top: 2px solid #fff;">
+			<form>
+				<p class="radio-p">
+					发票类型： <input ng-model="invoiceType" type="radio" id="3" value="个人"
+						style="margin-left: 5%;">个人 <span class="bspn"></span> <input
+						ng-model="invoiceType" type="radio" id="4" value="单位"
+						style="margin-left: 20%;">单位
+				</p>
+			</form>
+		</div>
+		<div class="pay-div6" ng-show="needInvoice && invoiceType === '单位'">
+			<p style="margin:2.5% 0 2.5% 6%;">
+				<span class="div6-span">发票抬头：</span> <input class="div6-text"
+					type="text" ng-model="newOrder.invoiceTitle"
+					placeholder="请输入发票的单位抬头">
+			</p>
+		</div>
+		<div class="div-foot">
+			<p class="foot-p1">
+				实付款：<span class="foot-span1">
+				<span ng-bind="newOrder.amount | currency: '￥'""> </span>
+					<!-- （含运费:
+					<span ng-bind="newOrder.shipFee"></span>) -->
+					<!-- <span ng-bind="shipPrice * 2 * newOrder.quantity * newOrder.orderProducts[0].totalWeight"></span> -->
+				<!--  <span
+					ng-bind="newOrder.orderProducts[0].price * newOrder.quantity + shipPrice * 2 * newOrder.quantity * newOrder.orderProducts[0].totalWeight"></span> --></span>
+					
+			</p>
+			<div class="foot-s" ng-click="addOrder()"  ng-if="defaultLocation.phone != null">
+					<img style="float: left; margin: 8px 0 0 34%;"
+						src='@routes.Assets.at("img/pay.png")' alt="">
+					<div class="weix"
+						style="width: 60px; float: left; padding: 16px 0 0 0;">微信支付</div>
+				</div>
+				
+				 <div class="foot-s" ng-click="jinggao(defaultLocation)" ng-if="defaultLocation === null" style="">
+					<img style="float: left; margin: 8px 0 0 34%;"
+						src='@routes.Assets.at("img/pay.png")' alt="">
+					<div class="weix"
+						style="width: 60px; float: left; padding: 16px 0 0 0;">微信支付</div>
+				</div> 
+				
+		</div>
+	</div>
+
+
+</div>
+}

@@ -1,0 +1,36 @@
+@frame("提款人信息", "DistributorApp", "DistributorController") {
+<meta charset="UTF-8">
+<div class="location" >
+	<form id="form" role="form" name="myform"  novalidate>
+		<table><!-- ng-submit="formSave(myform.$valid)" -->
+			<tr>
+				<td>手机号码:<input type="text" class="td-text " placeholder="请输入手机号码"
+					required ng-model="drawing.phone" ng-pattern="/^([0-9]{11})$/"
+					></td>
+			</tr>
+			<tr>
+				<td>发卡银行:<input type="text" class="td-text "
+					required placeholder="请输入发卡银行" ng-model="drawing.bank"></td>
+			</tr>
+			<tr>
+				<td>银行支行:<input type="text" class="td-text " required
+					placeholder="请输入银行支行" ng-model="drawing.subbranchOfBank"></td>
+			</tr>
+			<tr>
+				 <td>卡号:<input type="text" class="td-text " placeholder="请输入卡号" ng-pattern="/^\d{16}|\d{19}$/"
+					ng-model="drawing.cardNumber"></td>
+			</tr>
+			<tr>
+				 <td>姓名:<input type="text" class="td-text " placeholder="请输入持卡人姓名"
+					ng-model="drawing.name"></td>
+			</tr>
+
+		</table>
+	
+	<div class="location-div1">
+			<div ng-if="myform.$valid" class="location-button1"  ng-disabled="myform.$invalid" ng-click="save(@session.get("userid"))" >提交</div>
+		<div class="location-button1"  ng-disabled="myform.$invalid" style="background:#888888;" ng-if="myform.$invalid">提交</div>
+	</div>
+	</form>
+</div>
+}

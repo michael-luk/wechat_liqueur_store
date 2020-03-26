@@ -1,0 +1,49 @@
+@main("订单管理", "OrdersBackendApp", "OrdersBackendController") {
+<style>
+.gridStyle {
+	border: 1 px solid rgb(212, 212, 212);
+	width: 90%;
+	height: 800 px
+}
+</style>
+<div class="page-content">
+	<div class="page-header">
+		<h1>订单管理</h1>
+	</div>
+	<!-- /.page-header -->
+
+	<div class="row">
+		<div class="col-xs-12">
+			<p>
+				<select ng-model="cmstype" id="cmstype" name="cmstype"
+					ng-options="type.id as type.name for type in cmstypes">
+				</select>
+
+				<button ng-click="addContent()" class="btn btn-primary">
+					<i class="icon-beaker align-top bigger-125"></i> 添加
+				</button>
+
+				<button ng-click="editContent()" class="btn btn-success">
+					<i class="icon-beaker align-top bigger-125"></i> 編輯
+				</button>
+
+				<button ng-click="deleteContent()" class="btn btn-danger">
+					<i class="icon-trash  align-top bigger-125 icon-on-left"></i> 刪除
+				</button>
+			</p>
+
+			<div class="gridStyle" ng-grid="gridOptions"></div>
+            <br>
+            <div ng-show="pageInfo">
+	            <p>每页显示: {{pageInfo.size}}, 目前显示: {{pageInfo.desc}}, 当前页: {{pageInfo.current}}, 共{{pageInfo.total}}页</p>
+	            <p>
+		            <a href="" ng-click="goPrevPage()" ng-show="pageInfo.hasPrev">上一页</a> 
+		            <a href="" ng-click="goNextPage()" ng-show="pageInfo.hasNext">下一页</a>
+	            </p>
+            </div>
+		</div>
+	</div>
+	<!-- /.row -->
+</div>
+<!-- /.page-content -->
+}
